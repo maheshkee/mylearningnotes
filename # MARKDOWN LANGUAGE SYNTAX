@@ -20,7 +20,7 @@
 
 # PARAGRAPH :
 
-- For Paragraph simply leave one blank line
+- for Paragraph simply leave one blank line
 - for line breaks, put two spaces end of line or use <br>
 
 # Text Formatting :
@@ -60,3 +60,4 @@
 
 - for images :
 /![text](image.png,i.e the image path)
+
