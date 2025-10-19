@@ -1,0 +1,63 @@
+# MARKDOWN LANGUAGE SYNTAX 
+
+1.HEADINGS
+2.PARAGRAPH
+3.TEXT FORMATTING
+4.LISTS
+5.QUOTES
+6.TABLE
+7.TASK LISTS
+8.ESCAPING SEQUENCE
+9.LINKS AND IMAGES
+
+
+# HEADINGS :
+
+- /#/ is used for headings
+- for levels use multiple /#/ 
+- example: 
+  . ## for heading2 
+
+# PARAGRAPH :
+
+- for Paragraph simply leave one blank line
+- for line breaks, put two spaces end of line or use <br>
+
+# Text Formatting :
+
+- Itallic :
+  . use /*text*/ for itallic
+- Bold :
+  . use /**textb**/ for bold
+- Bold and Itallic:
+  . use /***textib***/ for both 
+- strike :
+  . use /~~textstrike~~/
+
+# LISTS :
+
+- for ordered list : use 1. 2. and so on
+- for unordered list : use /-/ 
+
+# QUOTES :
+
+- for quotes : use />/
+- for nested quote, quote within quote : use />>/
+
+# TABLE :
+
+- The table format will be using /|/ for separatinon and   
+/----/ for a horizontal line.
+
+# ESCAPING SEQUENCE :
+
+- FOR MARKDOWN LANGUAGE THE ESCAPE SEQUENCE CHAR IS ///
+
+# LINKS AND IMAGES :
+
+- for links :  
+/[text](htttps://www.google.com)/
+
+- for images :
+/![text](image.png,i.e the image path)
+
