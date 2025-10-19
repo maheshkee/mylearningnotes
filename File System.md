@@ -79,6 +79,7 @@ fopen() traverses the heirarchy path through Directory finds the inodes location
 fread() enables the File System to read a file. simliar function fgetc() only difference fgetc reads onlyone byte abd fread reads strings.
 
 fwrite() used to write data to blocks. 
+ 
 
 ## Types :
 
@@ -101,7 +102,51 @@ While writing data to HDD, time will be more so OS simply writes the data to a B
 
 For better efficiency, File System sometimes does a trade off between Speed and Consistency (correctness)
 
-This is basic details about **FILE SYSTEM** in Computer Knowledge. 
+## Drivers and File System :
+
+Since the File System is an abstraction of the hardware storage device, it needs some interface to connect with those devices. Drivers are modules that act as bridge between File Systema and the Hardware device. 
+
+- The File System translates high level file paths and byte based content to block based requests, the Drivers converts them into Hardware commands.
+
+### Sample C program workflow :
+
+- **CODE** :
+#include <stdio.h>
+
+int main()
+{
+
+	FILE *file_pointer = fopen("D:/AI Karyashala Rough/cpractice/hello.txt","w");
+	if (file_pointer == NULL)
+	{
+		printf("Failed to open");
+		return 1;
+	}
+	fclose(file_pointer);
+	printf("Successfully opened the file");
+	return 0;
+}
+
+- This is a C program which when and compiled produces a binary file stored as executable.
+
+what happens when we run ./fileopen from the cwd:
+
+- the file will be loaded to RAM and the ip sets to main() of the C program
+- when the instruction reaches fopen() it gets mapped to Syscall **OPEN()** , CPU activates Kernel
+- the File System traverse the path understands the hierarchy looks for Directory --> Inode numbers(metadata) --> file blocks --> data block. 
+- if the file exists it finds the inode details via directory and reaches the file path and makes it ready to be opened either as read or write, returns the file descriptor value to the file pointer of type FILE which contains file information.
+- if file dont exist and is opened as read mode the fail doesnot open and output will be failed to open
+- if file doesnt exist and is opened as write mode the Kernel sends I/O request to the disk via disk driver and waits for the disk response. 
+-  in this meantime CPU handles other process
+- after the **SYSCALL** returns value successfull as fd = 3; the CPU turns back from **Kernel** mode to CPU user mode and continue with program/application execution.
+- similarly when execution reaches floce(); the syscall close() gets called and OS again switch on Kernel mode and Kernel takes control of the process. when the function call returns value the cpu turn back to user mode to continue with process  execution., until the return 0 is reached. 
+
+** during this process few other things happen parallel, when reading a byte from file, the block containg the byte will be loaded to RAM segment and additionally, the next block in the sequence will be loaded into cache segment. this is called prefetching data blocks to reduce I/O requests to disk as they are slow in process.
+
+** while writing data to file(disk), Kernel writes the data to a buffer memory segment first and only writes to disk either when the flcose() functions is called or blocks filled or we use function like fflush()
+
+
+This are basic details about **FILE SYSTEM** in Computer Knowledge. 
 
 
 
