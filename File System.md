@@ -18,13 +18,13 @@ In Linux everything is a ***File**. So File System is key in understanding for p
 - Bitmap
 - Inode(Index Node)
 
-- Storage device is a component which stores data in form of one's and Zeroes. 
+## Storage device : It is a component which stores data in form of one's and Zeroes. 
 
 ### Types : HDD(magnetic memory storage), SSD(electronic memory storage), USB, Cd-rom etc
 
 - HDD : Its a magnetic storage device basically stores 1 and zero using magnetic alignment of North and South poles. It comes with huge capacity. But comparatively a little slow in reading and writing data because of the magnetic mechanism.
 
-  - SDD : Its a electronic storage device using electric charges for 1 and zero. It is speed compared to HDD but very costly.
+- SDD : Its a electronic storage device using electric charges for 1 and zero. It is speed compared to HDD but very costly.
 
 
 ## Why?
@@ -70,9 +70,15 @@ Formatting: when a storage device is formatted all the blocks will be free.
 * When we want to delete a file we delete that inode pointers in Directory file table, what happens is we lose the link to our inode and thereby losing data block connection. So the actual data content in the storage device actually stays like that until it's overwritten later. 
 Also when we delete a file , bitmap will be updated with free blocks list.
 
-## System Calls:
+## System Calls and File Operations:
 
-When we open, read, write a file what happens under hood at system level is the system call functions fopen(), fwrite(), fread() will be called in the cpu. 
+File operations are the core actions performed on files by the File System. Those are fopen(), fread(), fwrite(), fprintf(). Under the hood they map to System calls open, read, write, unlink(UNIX).
+
+fopen() traverses the heirarchy path through Directory finds the inodes location of file and makes the file ready for open. 
+
+fread() enables the File System to read a file. simliar function fgetc() only difference fgetc reads onlyone byte abd fread reads strings.
+
+fwrite() used to write data to blocks. 
 
 ## Types :
 
