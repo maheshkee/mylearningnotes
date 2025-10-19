@@ -145,6 +145,7 @@ what happens when we run ./fileopen from the cwd:
 
 ** while writing data to file(disk), Kernel writes the data to a buffer memory segment first and only writes to disk either when the flcose() functions is called or blocks filled or we use function like fflush()
 
+<<<<<<< HEAD
 ## FlowChart :
 
 ┌──────────────────────────────────────────────────────────┐
@@ -272,6 +273,8 @@ what happens when we run ./fileopen from the cwd:
 │ Shell regains control and prints prompt                   │
 └──────────────────────────────────────────────────────────┘
 
+=======
+>>>>>>> bf9f1aeacd3c7d49f87feb166f53683ef232ddff
 
 This are basic details about **FILE SYSTEM** in Computer Knowledge. 
 
