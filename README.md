@@ -1,2 +1,2 @@
 # mylearningnotes
-all the learning notes using markdwon 
+all the learning notes
