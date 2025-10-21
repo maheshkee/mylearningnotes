@@ -148,29 +148,17 @@ what happens when we run ./fileopen from the cwd:
 <<<<<<< HEAD
 ## FlowChart :
 
-┌──────────────────────────────────────────────────────────┐
-│ 1. You type command in Terminal (User Action)            │
-└──────────────────────────────────────────────────────────┘
-             │
-             ▼
-┌──────────────────────────────────────────────────────────┐
-│ Keyboard hardware detects keypress                       │
-│  → sends interrupt to CPU via keyboard driver             │
-└──────────────────────────────────────────────────────────┘
-             │
-             ▼
-┌──────────────────────────────────────────────────────────┐
-│ Kernel (Interrupt Handler) runs in Kernel Mode            │
-│  → updates input buffer                                   │
-│  → sends data to terminal process                         │
-└──────────────────────────────────────────────────────────┘
-             │
-             ▼
-┌──────────────────────────────────────────────────────────┐
-│ Shell (User Mode process) receives your command string    │
-│ Example: ./a.out                                          │
-│ Parses and recognizes executable to run                   │
-│ Calls execve() system call                                │
+
+1. You type command in Terminal (User Action)
+
+2. Keyboard hardware detects keypress -> sends interrupt to CPU via keyboard driver
+
+3. Kernel (Interrupt Handler) runs in Kernel Mode → updates input buffer→ sends data to terminal process
+
+4. shell (User Mode process) receives your command string
+Example: ./a.out
+Parses and recognizes executable to run
+Calls execve() system call   │
 └──────────────────────────────────────────────────────────┘
              │
              ▼
